@@ -1,0 +1,24 @@
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+<div id="html"></div>
+<div id="react"></div>
+
+<script type="text/babel">
+    document.getElementById('html').innerHTML = `
+  <div>
+    Hello HTML
+  </div>
+`;
+
+    ReactDOM.render(
+        React.createElement(
+            'div',
+            null,
+            'Hello React',
+        ),
+        document.getElementById('react'),
+    );
+
+</script>
