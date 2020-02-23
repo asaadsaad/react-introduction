@@ -2,29 +2,18 @@
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 
-<div id="html"></div>
-<div id="react"></div>
+<div id="app"></div>
 
 <script type="text/babel">
-    const renderHTML = () => {
-        document.getElementById('html').innerHTML = `
-        <div>
-            Hello HTML
-            <p>${new Date().toLocaleTimeString()}</p>
-        </div>
-        `;
-    }
-    const renderReact = () => {
-        ReactDOM.render(
-            React.createElement(
-                'div',
-                null,
-                'Hello React',
-                React.createElement('p', null, new Date().toLocaleTimeString())
-            ),
-            document.getElementById('react'),
+    function Paragraph(props) {
+        return React.createElement(
+            "p",
+            null,
+            props.text
         );
     }
-    setInterval(renderHTML, 1000);
-    setInterval(renderReact, 1000);
+    ReactDOM.render(
+        React.createElement(Paragraph, { text: "MSD" }),
+        document.getElementById('app')
+    );
 </script>
