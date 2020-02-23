@@ -6,21 +6,25 @@
 <div id="react"></div>
 
 <script type="text/babel">
-    document.getElementById('html').innerHTML = `
+    const renderHTML = () => {
+        document.getElementById('html').innerHTML = `
         <div>
             Hello HTML
             <p>${new Date().toLocaleTimeString()}</p>
         </div>
         `;
-
-    ReactDOM.render(
-        React.createElement(
-            'div',
-            null,
-            'Hello React',
-            React.createElement('p', null, new Date().toLocaleTimeString())
-        ),
-        document.getElementById('react'),
-    );
-
+    }
+    const renderReact = () => {
+        ReactDOM.render(
+            React.createElement(
+                'div',
+                null,
+                'Hello React',
+                React.createElement('p', null, new Date().toLocaleTimeString())
+            ),
+            document.getElementById('react'),
+        );
+    }
+    setInterval(renderHTML, 1000);
+    setInterval(renderReact, 1000);
 </script>
