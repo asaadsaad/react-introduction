@@ -6,14 +6,10 @@
 
 <script type="text/babel">
     function Paragraph(props) {
-        return React.createElement(
-            "p",
-            null,
-            props.text
-        );
+        return <p>{props.text}</p>;
     }
-    ReactDOM.render(
-        React.createElement(Paragraph, { text: "MSD" }),
-        document.getElementById('app')
-    );
+
+    ReactDOM.render(<Paragraph text="MSD" />, document.getElementById('app'));
+
+
 </script>
