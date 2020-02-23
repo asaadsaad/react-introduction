@@ -9,6 +9,7 @@
     document.getElementById('html').innerHTML = `
         <div>
             Hello HTML
+            <p>${new Date().toLocaleTimeString()}</p>
         </div>
         `;
 
@@ -17,6 +18,7 @@
             'div',
             null,
             'Hello React',
+            React.createElement('p', null, new Date().toLocaleTimeString())
         ),
         document.getElementById('react'),
     );
