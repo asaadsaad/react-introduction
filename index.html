@@ -5,11 +5,17 @@
 <div id="app"></div>
 
 <script type="text/babel">
-    function Paragraph(props) {
-        return <p>{props.text}</p>;
+    class DisplayMsg extends React.Component {
+        render() {
+            const { text, type } = this.props;
+            return (
+                <div style={{ color: type === "success" ? 'green' : 'red' }}>
+                    {text}
+                </div>
+            );
+        }
     }
 
-    ReactDOM.render(<Paragraph text="MSD" />, document.getElementById('app'));
-
+    ReactDOM.render(<DisplayMsg text="Okay" type="success" />, document.getElementById('app'));
 
 </script>
