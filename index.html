@@ -5,20 +5,22 @@
 <div id="app"></div>
 
 <script type="text/babel">
-    const Button = ({ clickAction }) => <button onClick={clickAction}> +1 </button>;
+    const Button = ({ clickAction, incrementValue }) => <button onClick={() => clickAction(incrementValue)}> +{incrementValue} </button>;
 
     const Display = ({ content }) => <pre>{content}</pre>;
 
     const App = () => {
         const [count, setCount] = React.useState(0);
 
-        const incrementCounter = () => {
-            setCount(count + 1);
+        const incrementCounter = (incrementValue) => {
+            setCount(count + incrementValue);
         };
 
         return (
             <div>
-                <Button clickAction={incrementCounter} />
+                <Button clickAction={incrementCounter} incrementValue={1} />
+                <Button clickAction={incrementCounter} incrementValue={5} />
+                <Button clickAction={incrementCounter} incrementValue={10} />
                 <Display content={count} />
             </div>
         );
