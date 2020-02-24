@@ -5,17 +5,26 @@
 <div id="app"></div>
 
 <script type="text/babel">
-    class DisplayMsg extends React.Component {
-        render() {
-            const { text, type } = this.props;
-            return (
-                <div style={{ color: type === "success" ? 'green' : 'red' }}>
-                    {text}
-                </div>
-            );
-        }
-    }
+    const Button = ({ clickAction }) => <button onClick={clickAction}> +1 </button>;
 
-    ReactDOM.render(<DisplayMsg text="Okay" type="success" />, document.getElementById('app'));
+    const Display = ({ content }) => <pre>{content}</pre>;
+
+    const App = () => {
+        const [count, setCount] = React.useState(0);
+
+        const incrementCounter = () => {
+            setCount(count + 1);
+        };
+
+        return (
+            <div>
+                <Button clickAction={incrementCounter} />
+                <Display content={count} />
+            </div>
+        );
+    };
+
+
+    ReactDOM.render(<App />, document.getElementById('app'));
 
 </script>
