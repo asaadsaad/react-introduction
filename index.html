@@ -6,21 +6,17 @@
 
 <script type="text/babel">
 
-    const App = () => {
-        const [text, setText] = React.useState('');
+    const App = (props) => (
+        <h2>{props.count}</h2>
+    );
 
-        const handleChange = (event) => {
-            const element = event.target;
-            setText(element.value);
-        };
+    const App2 = function (props) {
         return (
-            <div>
-                <textarea cols={80} rows={10} value={text} onChange={handleChange} />
-                <div>Count: {text.length}</div>
-            </div>
-        );
+            <h2>{props.count}</h2>
+        )
     };
+    let count = 0;
 
-    ReactDOM.render(<App />, document.getElementById('app'));
+    setInterval(() => ReactDOM.render(<App count={count++} />, document.getElementById('app')), 1000);
 
 </script>
