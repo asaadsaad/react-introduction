@@ -6,17 +6,33 @@
 
 <script type="text/babel">
 
-    const App = (props) => (
-        <h2>{props.count}</h2>
-    );
+    class App extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                count: 0,
+            }
+        }
 
-    const App2 = function (props) {
-        return (
-            <h2>{props.count}</h2>
-        )
-    };
-    let count = 0;
+        increaseCount() {
+            this.setState(prevState => ({ count: prevState.count + 1 }))
+            this.setState(prevState => ({ count: prevState.count + 1 }))
+            console.log(this.state.count)
+        }
 
-    setInterval(() => ReactDOM.render(<App count={count++} />, document.getElementById('app')), 1000);
+        render() {
+            return (
+                <div>
+                    <div>
+                        <button onClick={() => this.increaseCount()}>Increase</button>
+                    </div>
+                    <h2>{this.state.count}</h2>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'))
+
 
 </script>
